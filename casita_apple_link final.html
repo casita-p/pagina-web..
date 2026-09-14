@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casita Apple | Apple Experts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+        .card-link { transition: all 0.3s ease; border: 1px solid #333; }
+        .card-link:hover { transform: translateY(-3px); border-color: #ff6600; box-shadow: 0 10px 25px rgba(255, 102, 0, 0.15); }
+        .gradient-text { background: linear-gradient(90deg, #ff6600, #ff9933); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* Efecto de luz / glow moderno 2026 para los iconos */
+        .icon-glow {
+            filter: drop-shadow(0 0 8px rgba(255, 102, 0, 0.6));
+        }
+    </style>
+</head>
+<body class="py-12 px-4 selection:bg-orange-500 selection:text-white">
+
+    <main id="main-view" class="max-w-md mx-auto transition-all duration-300">
+        <div class="text-center mb-8">
+            <div class="w-32 h-32 bg-gradient-to-br from-orange-500 to-black text-white rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden shadow-[0_0_25px_rgba(255,102,0,0.3)] border-2 border-orange-500">
+                <img src="https://i.postimg.cc/BZNT34kp/upscalemedia-transformed-(1).jpg" alt="Casita Apple Logo" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/128x128/111111/ff6600?text=';">
+            </div>
+            <h1 class="text-3xl font-extrabold mb-1 tracking-tight">Casita Apple</h1>
+            <p class="text-orange-500 font-medium text-[9px] tracking-widest uppercase mt-1">Apple Experts | Desde 2016</p>
+            
+            <div class="flex justify-center gap-6 mt-6 text-2xl text-white">
+                <a href="https://www.instagram.com/casita_apple_sd?igsh=MXd4dzdqamk3OTlycw==&utm_source=ig_contact_invite" target="_blank" class="hover:text-orange-500 transition"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1HUkLr3S4z/?mibextid=wwXIfr" target="_blank" class="hover:text-orange-500 transition"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@casita.apple.sd?_r=1&_t=ZS-98dINWalWw0" target="_blank" class="hover:text-orange-500 transition"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <div class="bg-[#111] rounded-2xl border border-orange-900/30 overflow-hidden transition-all duration-300">
+                <button onclick="toggleHours()" class="w-full p-4 flex items-center justify-between text-left focus:outline-none hover:bg-orange-950/20 transition cursor-pointer">
+                    <span id="store-status-container" class="font-semibold text-sm flex items-center gap-2">
+                        <span id="store-status-dot" class="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span> 
+                        <span id="store-status-text">Verificando horario...</span>
+                    </span>
+                    <div class="flex items-center gap-2">
+                        <span class="text-gray-400 text-sm">Ver horarios</span>
+                        <i id="hours-icon" class="fas fa-chevron-down text-orange-500 text-xs transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="hours-dropdown" class="hidden px-4 pb-4 pt-1 border-t border-orange-950/40 text-sm space-y-2 text-gray-300 bg-[#0a0a0a]">
+                    <div class="flex justify-between items-center py-2 border-b border-gray-900">
+                        <span class="font-medium text-white">Lunes a Viernes</span>
+                        <span class="text-orange-400 font-semibold">9:00 AM - 18:00 PM</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-gray-900">
+                        <span class="font-medium text-white">Sábado</span>
+                        <span class="text-red-400 font-semibold">Cerrado</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2">
+                        <span class="font-medium text-white">Domingo</span>
+                        <span class="text-orange-400 font-semibold">10:00 AM - 16:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón Sellados - iPhone 17 Series -->
+            <button onclick="showCatalog('iphone')" class="card-link w-full text-left block bg-[#111] p-5 rounded-2xl shadow-sm cursor-pointer">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl font-bold bg-gradient-to-br from-orange-500/20 to-orange-600/5 p-3 rounded-2xl text-orange-500 icon-glow flex items-center justify-center w-14 h-14 border border-orange-500/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                            📱
+                        </span>
+                        <div>
+                            <div class="font-bold text-base">Sellados - iPhone 17 Series</div>
+                            <div class="text-xs text-gray-400">Ver precios y catálogo completo</div>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-orange-500 text-sm"></i>
+                </div>
+            </button>
+
+            <!-- Botón iPhone Open Box -->
+            <button onclick="showCatalog('openbox')" class="card-link w-full text-left block bg-[#111] p-5 rounded-2xl shadow-sm cursor-pointer">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl font-bold bg-gradient-to-br from-orange-500/20 to-orange-600/5 p-3 rounded-2xl text-orange-500 icon-glow flex items-center justify-center w-14 h-14 border border-orange-500/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                            📦
+                        </span>
+                        <div>
+                            <div class="font-bold text-base">iPhones Open Box</div>
+                            <div class="text-xs text-gray-400">Ver precios y catálogo de equipos Open Box</div>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-orange-500 text-sm"></i>
+                </div>
+            </button>
+
+            <!-- Botón Apple Watch -->
+            <button onclick="showCatalog('apple-watch')" class="card-link w-full text-left block bg-[#111] p-5 rounded-2xl shadow-sm cursor-pointer">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl font-bold bg-gradient-to-br from-orange-500/20 to-orange-600/5 p-3 rounded-2xl text-orange-500 icon-glow flex items-center justify-center w-14 h-14 border border-orange-500/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                            ⌚
+                        </span>
+                        <div>
+                            <div class="font-bold text-base">Apple Watch</div>
+                            <div class="text-xs text-gray-400">Ver modelos y disponibilidad de relojes</div>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-orange-500 text-sm"></i>
+                </div>
+            </button>
+
+            <!-- Botón MacBook e iPad -->
+            <button onclick="showCatalog('mac-ipad')" class="card-link w-full text-left block bg-[#111] p-5 rounded-2xl shadow-sm cursor-pointer">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl font-bold bg-gradient-to-br from-orange-500/20 to-orange-600/5 p-3 rounded-2xl text-orange-500 icon-glow flex items-center justify-center w-14 h-14 border border-orange-500/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                            💻
+                        </span>
+                        <div>
+                            <div class="font-bold text-base">Potencia y Rendimiento</div>
+                            <div class="text-xs text-gray-400">MacBook e iPad con precios especiales</div>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-orange-500 text-sm"></i>
+                </div>
+            </button>
+
+            <!-- Botón Servicio Técnico -->
+            <button onclick="showCatalog('service')" class="card-link w-full text-left block bg-[#111] p-5 rounded-2xl shadow-sm cursor-pointer">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl font-bold bg-gradient-to-br from-orange-500/20 to-orange-600/5 p-3 rounded-2xl text-orange-500 icon-glow flex items-center justify-center w-14 h-14 border border-orange-500/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                            🛠️
+                        </span>
+                        <div>
+                            <div class="font-bold text-base">Servicio Técnico</div>
+                            <div class="text-xs text-gray-400">Reparación profesional para Apple</div>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-orange-500 text-sm"></i>
+                </div>
+            </button>
+
+            <!-- Botón de Ubicación -->
+            <a href="https://maps.app.goo.gl/pkhfo2R5er69y3sZA?g_st=iw" target="_blank" class="card-link block bg-[#111] p-5 rounded-2xl shadow-sm">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl font-bold bg-gradient-to-br from-orange-500/20 to-orange-600/5 p-3 rounded-2xl text-orange-500 icon-glow flex items-center justify-center w-14 h-14 border border-orange-500/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                            📍
+                        </span>
+                        <div>
+                            <div class="font-bold text-base">Matriz Santo Domingo</div>
+                            <div class="text-xs text-gray-400">Visítanos en nuestra tienda física</div>
+                        </div>
+                    </div>
+                    <i class="fas fa-external-link-alt text-orange-500 text-sm"></i>
+                </div>
+            </a>
+
+            <!-- WhatsApp CTA Principal -->
+            <a href="https://wa.me/message/ELNRLBTDXMRNK1" target="_blank" class="block bg-orange-600 text-white text-center py-4 rounded-2xl font-bold shadow-[0_0_20px_rgba(255,102,0,0.4)] hover:bg-orange-700 transition transform hover:scale-[1.02] mt-6">
+                <i class="fab fa-whatsapp mr-2 text-xl"></i> Contáctanos por WhatsApp
+            </a>
+        </div>
+
+        <div class="text-center mt-12 text-gray-600 text-xs">
+            <p>© 2026 Casita Apple</p>
+        </div>
+    </main>
+
+    <div id="catalog-view" class="hidden max-w-6xl mx-auto py-4 transition-all duration-300">
+        <!-- Botón Volver -->
+        <button onclick="showMain()" class="mb-8 bg-zinc-900 border border-orange-500/40 text-orange-400 hover:bg-orange-500 hover:text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition flex items-center gap-2 cursor-pointer">
+            <i class="fas fa-arrow-left"></i> Volver al menú principal
+        </button>
+
+        <!-- SECCIÓN iPHONE -->
+        <div id="section-iphone" class="catalog-section">
+            <div class="text-center mb-12">
+                <span class="text-orange-500 font-bold uppercase tracking-widest text-xs">iPhone</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-1 mb-2">El mejor compañero de tu día a día</h2>
+                <p class="text-gray-400 text-sm md:text-base">Conoce nuestra selección de equipos nuevos.</p>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="bg-[#111] border border-zinc-800 rounded-2xl p-5 flex flex-col justify-between hover:border-orange-500/60 transition shadow-lg">
+                    <div>
+                        <div class="bg-zinc-900/60 rounded-xl p-2 flex justify-center items-center h-48 mb-4 border border-zinc-800/50 overflow-hidden">
+                            <img src="https://i.postimg.cc/3wVdhFGD/highlights-design-endframe-eu8gj0kqlmoi-large-2x.jpg" alt="iPhone 17 Pro Max" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://placehold.co/128x128/111111/ff6600?text=📱';">
+                        </div>
+                        <h3 class="font-bold text-center text-base mb-1">iPhone 17 Pro Max 256GB-512GB-1TB</h3>
+                        <p class="text-orange-400 font-extrabold text-center text-lg mb-4">Disponible</p>
+                    </div>
+                    <div>
+                        <a href="https://wa.me/message/ELNRLBTDXMRNK1" target="_blank" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center py-3 rounded-xl font-bold text-sm transition shadow-md flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-lg"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-[#111] border border-zinc-800 rounded-2xl p-5 flex flex-col justify-between hover:border-orange-500/60 transition shadow-lg">
+                    <div>
+                        <div class="bg-zinc-900/60 rounded-xl p-2 flex justify-center items-center h-48 mb-4 border border-zinc-800/50 overflow-hidden">
+                            <img src="https://i.postimg.cc/CLf9nnwz/iphone-17-pro-1-tb-azul-oscuro-001-l-sf.webp" alt="iPhone 17 Pro" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://placehold.co/128x128/111111/ff6600?text=📱';">
+                        </div>
+                        <h3 class="font-bold text-center text-base mb-1">iPhone 17 Pro 256GB-512GB</h3>
+                        <p class="text-orange-400 font-extrabold text-center text-lg mb-4">Disponible</p>
+                    </div>
+                    <div>
+                        <a href="https://wa.me/message/ELNRLBTDXMRNK1" target="_blank" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center py-3 rounded-xl font-bold text-sm transition shadow-md flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-lg"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-[#111] border border-zinc-800 rounded-2xl p-5 flex flex-col justify-between hover:border-orange-500/60 transition shadow-lg">
+                    <div>
+                        <div class="bg-zinc-900/60 rounded-xl p-2 flex justify-center items-center h-48 mb-4 border border-zinc-800/50 overflow-hidden">
+                            <img src="https://i.postimg.cc/gkj71yYm/iphone-17-blanco-1-l-sf.webp" alt="iPhone 17" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://placehold.co/128x128/111111/ff6600?text=📱';">
+                        </div>
+                        <h3 class="font-bold text-center text-base mb-1">iPhone 17 256GB</h3>
+                        <p class="text-orange-400 font-extrabold text-center text-lg mb-4">Disponible</p>
+                    </div>
+                    <div>
+                        <a href="https://wa.me/message/ELNRLBTDXMRNK1" target="_blank" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center py-3 rounded-xl font-bold text-sm transition shadow-md flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-lg"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-[#111] border border-zinc-800 rounded-2xl p-5 flex flex-col justify-between hover:border-orange-500/60 transition shadow-lg">
+                    <div>
+                        <div class="bg-zinc-900/60 rounded-xl p-2 flex justify-center items-center h-48 mb-4 border border-zinc-800/50 overflow-hidden">
+                            <img src="https://i.postimg.cc/wv6x286N/Whats-App-Image-2026-08-05-at-12-40-06.png" alt="iPhone 17 Air" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://placehold.co/128x128/111111/ff6600?text=📱';">
+                        </div>
+                        <h3 class="font-bold text-center text-base mb-1">iPhone 17 Air 256GB</h3>
+                        <p class="text-orange-400 font-extrabold text-center text-lg mb-4">Disponible</p>
+                    </div>
+                    <div>
+                        <a href="https://wa.me/message/ELNRLBTDXMRNK1" target="_blank" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center py-3 rounded-xl font-bold text-sm transition shadow-md flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-lg"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN iPHONE OPEN BOX -->
+        <div id="section-openbox" class="catalog-section hidden">
+            <div class="text-center mb-12">
+                <span class="text-orange-500 font-bold uppercase tracking-widest text-xs">Open Box</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-1 mb-2">iPhone Open Box - Premium</h2>
+                <p class="text-gray-400 text-sm md:text-base">Equipos en estado impecable con garantía.</p>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto mb-16">
+                <div class="bg-[#111] border border-zinc-800 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 hover:border-orange-500/60 transition shadow-xl">
+                    <div class="w-full md:w-1/2">
+                        <div class="bg-zinc-900/60 rounded-2xl p-4 flex justify-center items-center h-64 md:h-72 border border-zinc-800/50 overflow-hidden">
+                            <img src="https://i.postimg.cc/gcRxzwdJ/Chat-GPT-Image-6-ago-2026-10-24-45-a-m.png" alt="iPhones Open Box" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://placehold.co/600x400/111111/ff6600?text=Open+Box';">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
+                        <span class="text-orange-500 font-bold text-xs uppercase tracking-wider mb-2">Stock Limitado - Disponible</span>
+                        <h3 class="font-extrabold text-2xl md:text-3xl mb-3">Catálogo Open Box</h3>
+                        <p class="text-gray-400 text-sm mb-6">Contamos con iPhone desde el 13 hasta el 16 Pro Max, disponibles en todas sus series. Consulta disponibilidad de colores, capacidad de almacenamiento y stock.</p>
+                        <a href="https://wa.me/message/ELNRLBTDXMRNK1" target="_blank" class="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white py-3.5 px-8 rounded-xl font-bold text-base transition shadow-md w-full md:w-auto">
+                            <i class="fab fa-whatsapp text-xl"></i> Consultar Disponibilidad
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN APPLE WATCH -->
+        <div id="section-apple-watch" class="catalog-section hidden">
+            <div class="text-center mb-12">
+                <span class="text-orange-500 font-bold uppercase tracking-widest text-xs">Apple Watch</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-1 mb-2">Organiza tu día y mantén el control</h2>
+                <p class="text-gray-400 text-sm md:text-base">Modelos diseñados para acompañar tu actividad diaria.</p>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto mb-16">
+                <div class="bg-[#111] border border-zinc-800 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 hover:border-orange-500/60 transition shadow-xl">
+                    <div class="w-full md:w-1/2">
+                        <div class="bg-zinc-900/60 rounded-2xl p-4 flex justify-center items-center h-64 md:h-72 border border-zinc-800/50 overflow-hidden">
+                            <img src="https://i.postimg.cc/mk7r2J9N/Chat-GPT-Image-5-ago-2026-07-26-42-a-m.png" alt="Apple Watch" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://placehold.co/600x400/111111/ff6600?text=Apple+Watch';">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
+                        <span class="text-orange-500 font-bold text-xs uppercase tracking-wider mb-2">Series SE 3, 11 & Ultra 3 - Disponible</span>
+                        <h3 class="font-extrabold text-2xl md:text-3xl mb-3">Catálogo Apple Watch</h3>
+                        <p class="text-gray-400 text-sm mb-6">Disponibles en varias medidas, colores, correas deportivas o loop. Consulta stock actual.</p>
+                        <a href="https://wa.me/message/ELNRLBTDXMRNK1" target="_blank" class="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white py-3.5 px-8 rounded-xl font-bold text-base transition shadow-md w-full md:w-auto">
+                            <i class="fab fa-whatsapp text-xl"></i> Consultar Disponibilidad
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN MACBOOK & IPAD -->
+        <div id="section-mac-ipad" class="catalog-section hidden">
+            <div class="text-center mb-12">
+                <span class="text-orange-500 font-bold uppercase tracking-widest text-xs">MacBook & iPad</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-1 mb-2">Potencia y Rendimiento</h2>
+                <p class="text-gray-400 text-sm md:text-base">Equipos diseñados para llevar tu productividad al máximo nivel.</p>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto mb-16">
+                <div class="bg-[#111] border border-zinc-800 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 hover:border-orange-500/60 transition shadow-xl">
+                    <div class="w-full md:w-1/2">
+                        <div class="bg-zinc-900/60 rounded-2xl p-4 flex justify-center items-center h-64 md:h-72 border border-zinc-800/50 overflow-hidden">
+                            <img src="https://i.postimg.cc/cJdfq7Vt/Chat-GPT-Image-5-ago-2026-07-32-13-a-m.png" alt="MacBook & iPad" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://placehold.co/600x400/111111/ff6600?text=MacBook+iPad';">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
+                        <span class="text-orange-500 font-bold text-xs uppercase tracking-wider mb-2">MacBook Air, Pro & iPad - Disponible</span>
+                        <h3 class="font-extrabold text-2xl md:text-3xl mb-3">Catálogo Mac & iPad</h3>
+                        <p class="text-gray-400 text-sm mb-6">Disponibles en varias versiones, capacidades y colores. Consulta nuestro stock actual.</p>
+                        <a href="https://wa.me/message/ELNRLBTDXMRNK1" target="_blank" class="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white py-3.5 px-8 rounded-xl font-bold text-base transition shadow-md w-full md:w-auto">
+                            <i class="fab fa-whatsapp text-xl"></i> Consultar Disponibilidad
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN SERVICIO TÉCNICO -->
+        <div id="section-service" class="catalog-section hidden">
+            <div class="text-center mb-12">
+                <span class="text-orange-500 font-bold uppercase tracking-widest text-xs">Servicio Técnico</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-1 mb-2">Servicio Especializado en Apple</h2>
+                <p class="text-gray-400 text-sm md:text-base">Tus dispositivos en manos de expertos.</p>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto mb-16">
+                <div class="bg-[#111] border border-zinc-800 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 hover:border-orange-500/60 transition shadow-xl">
+                    <div class="w-full md:w-1/2">
+                        <div class="bg-zinc-900/60 rounded-2xl p-4 flex justify-center items-center h-64 md:h-72 border border-zinc-800/50 overflow-hidden">
+                            <img src="https://i.postimg.cc/jdFMBfbM/Chat-GPT-Image-11-ago-2026-05-03-49-p-m.png" alt="Servicio Técnico Apple" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://placehold.co/600x400/111111/ff6600?text=Servicio+Tecnico';">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
+                        <span class="text-orange-500 font-bold text-xs uppercase tracking-wider mb-2">Calidad y Garantía</span>
+                        <h3 class="font-extrabold text-2xl md:text-3xl mb-3">Taller Especializado</h3>
+                        <p class="text-gray-400 text-sm mb-6">Reparamos tus equipos con piezas originales para iPhone, Apple Watch, Mac y iPad, de manera inmediata y segura. Cotiza tu reparación directamente con nuestros técnicos.</p>
+                        <a href="https://wa.me/message/ELNRLBTDXMRNK1" target="_blank" class="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white py-3.5 px-8 rounded-xl font-bold text-base transition shadow-md w-full md:w-auto">
+                            <i class="fab fa-whatsapp text-xl"></i> Cotizar Servicio Técnico
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkStoreStatus() {
+            // Horarios:
+            // Lunes a Viernes: 9:00 AM - 18:00 PM (1) a (5)
+            // Sábado: Cerrado (6)
+            // Domingo: 10:00 AM - 16:00 PM (0)
+            
+            // Usamos la hora de Ecuador (America/Guayaquil)
+            const now = new Date();
+            const optionsTime = { timeZone: 'America/Guayaquil', hour12: false, hour: 'numeric', minute: 'numeric', weekday: 'numeric' };
+            
+            // Para obtener el día y hora local exacta en Ecuador
+            const ecuadorFormatter = new Intl.DateTimeFormat('en-US', {
+                timeZone: 'America/Guayaquil',
+                weekday: 'short',
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: false
+            });
+            
+            const parts = ecuadorFormatter.formatToParts(now);
+            let dayStr = '';
+            let hour = 0;
+            let minute = 0;
+            
+            for (let part of parts) {
+                if (part.type === 'weekday') dayStr = part.value; // Mon, Tue, Wed, Thu, Fri, Sat, Sun
+                if (part.type === 'hour') hour = parseInt(part.value, 10);
+                if (part.type === 'minute') minute = parseInt(part.value, 10);
+            }
+            
+            // Mapeo de días
+            // Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6
+            const dayMap = { 'Sun': 0, 'Mon': 1, 'Tue': 2, 'Wed': 3, 'Thu': 4, 'Fri': 5, 'Sat': 6 };
+            const dayOfWeek = dayMap[dayStr] !== undefined ? dayMap[dayStr] : now.getDay();
+            
+            const currentTimeVal = hour * 60 + minute;
+            let isOpen = false;
+            
+            if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+                // Lunes a Viernes: 9:00 (540 min) a 18:00 (1080 min)
+                if (currentTimeVal >= 540 && currentTimeVal < 1080) {
+                    isOpen = true;
+                }
+            } else if (dayOfWeek === 0) {
+                // Domingo: 10:00 (600 min) a 16:00 (960 min)
+                if (currentTimeVal >= 600 && currentTimeVal < 960) {
+                    isOpen = true;
+                }
+            }
+            // Sábado (6) siempre cerrado
+            
+            const dotEl = document.getElementById('store-status-dot');
+            const textEl = document.getElementById('store-status-text');
+            
+            if (isOpen) {
+                dotEl.className = "w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse";
+                textEl.textContent = "Abierto Ahora";
+            } else {
+                dotEl.className = "w-2.5 h-2.5 rounded-full bg-red-500";
+                textEl.textContent = "Cerrado Ahora";
+            }
+        }
+
+        // Ejecutar al cargar la página
+        document.addEventListener("DOMContentLoaded", function() {
+            checkStoreStatus();
+            // Actualizar cada minuto por si cambia la hora
+            setInterval(checkStoreStatus, 60000);
+        });
+
+        function toggleHours() {
+            const dropdown = document.getElementById('hours-dropdown');
+            const icon = document.getElementById('hours-icon');
+            if (dropdown.classList.contains('hidden')) {
+                dropdown.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                dropdown.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function showCatalog(type) {
+            document.getElementById('main-view').classList.add('hidden');
+            document.getElementById('catalog-view').classList.remove('hidden');
+            
+            const sectionIphone = document.getElementById('section-iphone');
+            const sectionOpenBox = document.getElementById('section-openbox');
+            const sectionAppleWatch = document.getElementById('section-apple-watch');
+            const sectionMacIpad = document.getElementById('section-mac-ipad');
+            const sectionService = document.getElementById('section-service');
+
+            sectionIphone.classList.add('hidden');
+            sectionOpenBox.classList.add('hidden');
+            sectionAppleWatch.classList.add('hidden');
+            sectionMacIpad.classList.add('hidden');
+            sectionService.classList.add('hidden');
+
+            if (type === 'iphone') {
+                sectionIphone.classList.remove('hidden');
+            } else if (type === 'openbox') {
+                sectionOpenBox.classList.remove('hidden');
+            } else if (type === 'apple-watch') {
+                sectionAppleWatch.classList.remove('hidden');
+            } else if (type === 'mac-ipad') {
+                sectionMacIpad.classList.remove('hidden');
+            } else if (type === 'service') {
+                sectionService.classList.remove('hidden');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showMain() {
+            document.getElementById('catalog-view').classList.add('hidden');
+            document.getElementById('main-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/message/ELNRLBTDXMRNK1" target="_blank" class="fixed bottom-6 right-6 bg-orange-600 text-white p-4 rounded-full shadow-2xl z-50 hover:bg-orange-500 transition-all hover:scale-110 flex items-center justify-center">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+</body>
+</html>
